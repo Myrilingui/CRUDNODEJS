@@ -1,0 +1,37 @@
+<%- include ('layouts/header.ejs') -%>
+<br>
+<div class="container">
+    <h1><%= title %></h1>
+    <br>
+
+    <!-- Leer la informacion de la base de datos -->
+    <div class="row">
+        <% for(var i=0; i<Libros.length; i++) { %>
+
+            <!-- <h3> <%=Libros[i].titulo %></h3> -->
+            <div class="col-sm-3">
+                <div class="card-group"style=" heigth: 3000px;" >
+                    
+                <div class="card border-success mb-3" >
+                    
+                  <img width="240px"  height="300px"  src="<%=Libros[i].imagen %>" class="card-img-top" alt="30px">
+                  <div class="card-body">
+                    <h5 class="card-title"><%=Libros[i].titulo %></h5>
+                    <p class="card-text" style="height: 30px;"><%=Libros[i].descripcion %></p>
+                    <p class="card-text"><small class="text-body-secondary">Precio $<%=Libros[i].precio %></small></p>
+                  </div>
+                  <button type="button" class="btn btn-outline-success">Primary</button>
+                </div>
+              </div>
+            </div>
+            <br>
+
+
+            <%} %>
+    </div>
+</div>
+<br>
+<%- include ('layouts/footer.ejs') -%>
+
+
+

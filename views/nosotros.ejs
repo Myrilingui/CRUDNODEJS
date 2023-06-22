@@ -1,0 +1,54 @@
+
+<%- include ('layouts/header.ejs') -%>
+<div class="container">
+    <h1><%= title %></h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Iconos -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
+
+        </div>
+    
+        <div class="container">
+           
+        <table class="table table-bordered table-striped text-center mt-4">
+            <thead>
+                <tr class="bd-primary ">
+                    <th scope="col">ID</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr>
+                <% for(var i=0; i<Libros.length; i++) { %>
+                <td><%=Libros[i].ID %></td>
+                <td><%=Libros[i].titulo %></td>
+                <td><%=Libros[i].imagen %></td>
+                <td><%=Libros[i].descripcion %></td>
+                <td><%=Libros[i].precio %></td>
+                <td>
+                    <a href="/actualizar/<%= Libros[i].ID %>" class="">Editar</a>
+                    <a href="/delete/<%= Libros[i].ID %>" class="btn-outline-danger">Eliminar</a>
+                </td>
+</tr>   
+                <%} %>
+            
+            </tbody>
+        </table>
+        <a href="/crear" class="btn btn-outline-primary mt-4" ><i class='bx bx-plus bx-md'></i></a>
+
+        </div>
+        
+     
+<%- include ('layouts/footer.ejs') -%>
